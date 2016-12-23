@@ -23,6 +23,25 @@
 	<div id="page">
 
 	</div>
-
+	<script type="text/javascript">
+   	<!--
+     	/*On submit, obtain value from element name "post", 
+       	  append system time (seconds only)
+          prepend to existing value in div id "page"*/
+    	document.getElementById('search').onsubmit = function() {
+     		//Retrieve submitted value
+      		var newValue = document.getElementsByName("post")[0].value;
+     		//retrieve current time 
+     		var currentTime = new Date();
+     		//Append second of current time to submitted value 
+     		newValue = newValue + " - " + currentTime.getSeconds();
+     		//Retrieve old value to prepend to
+      		var oldValue = document.getElementById("page").innerHTML;
+     		//Prepend new value to old value
+      		document.getElementById("page").innerHTML = (newValue + "<br/>" + oldValue);
+      		return false;
+   	}
+   	//-->
+  	</script>
 </body>
 </html>
